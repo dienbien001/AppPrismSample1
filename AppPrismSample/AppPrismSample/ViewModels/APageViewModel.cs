@@ -11,7 +11,7 @@ using Xamarin.Forms;
 
 namespace AppPrismSample.ViewModels
 {
-    public class APageViewModel : BaseViewModel
+    public class APageViewModel : BaseViewModel, IDisposable
     {
         private Timer _timer;
 
@@ -45,6 +45,11 @@ namespace AppPrismSample.ViewModels
             //_timer.Stop();
 
             base.Destroy();
+        }
+
+        public void Dispose()
+        {
+            _timer?.Dispose();
         }
     }
 }
